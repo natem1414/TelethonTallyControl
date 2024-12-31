@@ -11,7 +11,7 @@ log = logging.getLogger('midiin_callback')
 logging.basicConfig(level=logging.DEBUG)
 
 tally_ip = "10.10.10.10"
-tally_port = 5005
+tally_port = 1231
 tcp_buffer = 1024
 myip = "10.10.10.9"
 
@@ -30,25 +30,25 @@ class MidiInputHandler(object):
     def message_filter(self, deltatime, message):
         message_string = None
         if message == [144, 38, 127]:
-            message_string = "LED1;Off;HostA;Mute;On"
+            message_string = "LIGHT;LED1;OFF;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 38, 63]:
-            message_string = "LED1;On;HostA;Mute;Off"
+            message_string = "LIGHT;LED1;ON;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 39, 127]:
-            message_string = "LED2;Off;HostB;Mute;On"
+            message_string = "LIGHT;LED2;ON;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 39, 63]:
-            message_string = "LED2;On;HostB;Mute;Off"
+            message_string = "LIGHT;LED2;OFF;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 40, 127]:
-            message_string = "LED3;Off;HostC;Mute;On"
+            message_string = "LIGHT;LED3;ON;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 40, 63]:
-            message_string = "LED3;On;HostC;Mute;Off"
+            message_string = "LIGHT;LED3;OFF;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 41, 127]:
-            message_string = "LED4;Off;HostD;Mute;On"
+            message_string = "LIGHT;LED4;ON;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 41, 63]:
-            message_string = "LED4;On;HostD;Mute;Off"
+            message_string = "LIGHT;LED4;OFF;TEST1;TEXT2;000000;000000;000000;000000"
         if message == [144, 42, 127]:
-            message_string = "LED5;Off;Brett;Mute;On"
+#            message_string = "LED5;Off;Brett;Mute;On"
         if message == [144, 42, 63]:
-            message_string = "LED5;On;Brett;Mute;Off"
+#            message_string = "LED5;On;Brett;Mute;Off"
 
         if message_string is not None:
             print("[%s] @%0.6f %r [%s]" % (self.port, self._wallclock, message, message_string))
